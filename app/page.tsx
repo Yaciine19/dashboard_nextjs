@@ -1,4 +1,5 @@
 import DashboardCard from "@/components/dashboard/DashboardCard";
+import PostsTable from "@/components/posts/PostsTable";
 import { Folder, MessageCircle, Newspaper, User } from "lucide-react";
 
 const Cards = [
@@ -27,7 +28,7 @@ const Cards = [
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col md:flex-row justify-between gap-5 mb-5 border">
+      <div className="flex flex-col md:flex-row justify-between gap-5 mb-5">
         {Cards.map((card, index) => <DashboardCard
         key={index}
           title={card.title}
@@ -35,6 +36,7 @@ export default function Home() {
           icon={card.icon}
         />)}
       </div>
+      <PostsTable title="Latest Posts" limit={5} />
     </>
   );
 }
