@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Sidebar from "@/components/Sidebar";
 import { Toaster } from "@/components/ui/toaster";
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/components/theme-provider";
 
 const poppins = Poppins({
   weight: ["400", "600", "700"],
@@ -25,26 +23,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.className}`}>
         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-            storageKey="dashboard-theme"
-          >
-        <Navbar />
-
-        <div className="flex">
-          <div className="hidden md:block h-screen w-[300px]">
-            <Sidebar />
-          </div>
-          <div className="p-5 w-full md:max-w-[1140px]">
-            
-            {children}
-          
-          </div>
-        </div>
-        
-        <Toaster />
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          storageKey="dashboard-theme"
+        >
+          {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
